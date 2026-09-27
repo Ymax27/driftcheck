@@ -616,3 +616,9 @@ __all__ = [
 
 from .bazel import find_bazel_drift
 from .nix import find_nix_drift
+from .cargo_features import find_cargo_feature_drift, parse_cargo_features
+
+__all__ += [
+    "find_cargo_feature_drift",
+    "parse_cargo_features",
+]
