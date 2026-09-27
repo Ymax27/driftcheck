@@ -215,6 +215,7 @@ DETECTOR_FILE_PATTERNS: dict[str, list[str]] = {
     "devcontainer_drifts": [".devcontainer/devcontainer.json", ".devcontainer/*.devcontainer.json", "devcontainer.json", "README.md"],
     "mise_drifts": ["mise.toml", "README.md"],
     "poetry_drifts": ["pyproject.toml", "README.md", "CONTRIBUTING.md"],
+    "npm_workspace_drifts": ["package.json", "pnpm-workspace.yaml"],
     "bazel_drifts": [".bazelversion", "MODULE.bazel", "WORKSPACE.bazel", "README.md"],
     "nix_drifts": ["flake.lock", "flake.nix", "README.md"],
 }

@@ -62,6 +62,7 @@ DETECTOR_INFO = {
     "elixir_drifts": ("elixir", "Elixir mix.exs version vs README"),
     "cmake_drifts": ("cmake", "CMakeLists.txt cmake_minimum_required version vs README"),
     "requirements_drifts": ("requirements", "requirements.txt package versions vs pyproject.toml/README"),
+    "npm_workspace_drifts": ("npm-workspaces", "dependency ranges across npm/pnpm workspace package.json files"),
     "bazel_drifts": ("bazel", "Bazel pins vs README"),
     "nix_drifts": ("nix", "Nix flake.lock nixpkgs pins vs README"),
     "poetry_drifts": ("poetry", "Poetry pyproject.toml [tool.poetry] dependencies vs README"),
@@ -93,7 +94,7 @@ DETECTOR_INFO = {
 # Mapping of project files to their relevant detectors for `driftcheck init`
 FILE_DETECTOR_MAP = {
     "Cargo.toml": ["rust_drifts"],
-    "package.json": ["node_drifts", "bun_drifts", "nvmrc_drifts", "package_lock_drifts", "package_version_drifts"],
+    "package.json": ["node_drifts", "bun_drifts", "nvmrc_drifts", "package_lock_drifts", "package_version_drifts", "npm_workspace_drifts"],
     "go.mod": ["go_drifts"],
     "pyproject.toml": ["python_drifts"],
     "setup.py": ["python_setup_drifts"],
@@ -899,6 +900,8 @@ def _print_blocking_drifts(all_drifts: dict, result: dict) -> None:
     # Requirements drifts
     for d in all_drifts.get("requirements_drifts", []):
         print(f"driftcheck: {d['file']}: {d['package']} {d['doc_version']} → should be {d['requirements_version']} (requirements.txt)")
+    for d in all_drifts.get("npm_workspace_drifts", []):
+        print(f"driftcheck: {d['file']}: {d['detail']}")
 
     # Kotlin drifts
     for d in all_drifts.get("kotlin_drifts", []):

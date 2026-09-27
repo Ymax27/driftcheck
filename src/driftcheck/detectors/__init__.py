@@ -616,3 +616,8 @@ __all__ = [
 
 from .bazel import find_bazel_drift
 from .nix import find_nix_drift
+from .npm_workspaces import find_npm_workspace_drift
+
+__all__ += [
+    "find_npm_workspace_drift",
+]
