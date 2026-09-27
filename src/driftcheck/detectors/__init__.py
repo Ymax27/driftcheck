@@ -629,3 +629,10 @@ from .changelog import find_changelog_drift
 
 from .bazel import find_bazel_drift
 from .nix import find_nix_drift
+from .python_req import find_python_req_drift, parse_requirements, parse_pyproject_dependencies
+
+__all__ += [
+    "find_python_req_drift",
+    "parse_requirements",
+    "parse_pyproject_dependencies",
+]
