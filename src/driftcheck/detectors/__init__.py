@@ -629,3 +629,10 @@ from .changelog import find_changelog_drift
 
 from .bazel import find_bazel_drift
 from .nix import find_nix_drift
+from .terraform_lock import find_terraform_lock_drift, parse_required_providers, parse_lock_versions
+
+__all__ += [
+    "find_terraform_lock_drift",
+    "parse_required_providers",
+    "parse_lock_versions",
+]
