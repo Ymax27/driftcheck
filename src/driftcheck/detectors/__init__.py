@@ -629,3 +629,9 @@ from .changelog import find_changelog_drift
 
 from .bazel import find_bazel_drift
 from .nix import find_nix_drift
+from .justfile import find_justfile_drift, parse_justfile_versions
+
+__all__ += [
+    "find_justfile_drift",
+    "parse_justfile_versions",
+]
